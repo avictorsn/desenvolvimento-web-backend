@@ -4,7 +4,7 @@ const http = require('http');
 
 
 
-//Returns a list of users;
+//  Returns a list of users;
 module.exports.getUsers = function(req, res){
 
     User.find({})
@@ -16,7 +16,7 @@ module.exports.getUsers = function(req, res){
     
 };
 
-////Obtain a specific user;
+//  Obtain a specific user;
 module.exports.getUser = function(req, res){
     let id = req.params.id;
     let user = users.find((user) => (user.matricula==matricula));
@@ -27,7 +27,7 @@ module.exports.getUser = function(req, res){
     }
 };
 
-//Insert an user to the server;
+//  Insert an user to the server;
 module.exports.insertUser = function(req, res){
     let user = req.body;
     let newUser = new User({
@@ -40,12 +40,12 @@ module.exports.insertUser = function(req, res){
     res.json(user);
 };
 
-//Update user data;
+//  Update user data;
 module.exports.updateUser = function(req,res){
     res.status(200).send('Ok pvt');
 }
 
-//Remove an user from the database server;
+//  Remove an user from the database server;
 module.exports.removeUser = function(req,res){
     let matricula = req.params.matricula;
     let _aluno = alunos.find(aluno =>(aluno.matricula == matricula));

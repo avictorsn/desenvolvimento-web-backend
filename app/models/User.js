@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const connector = require('../db/connector');
-connector.connect;
 
 const userSchema = mongoose.Schema({
     _id: mongoose.Types.ObjectId,
