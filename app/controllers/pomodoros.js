@@ -32,7 +32,8 @@ module.exports.insertPomodoro = function(req, res){
     let newPomodoro = new Pomodoro({
         _id: new mongoose.Types.ObjectId(),
         checklist: pomodoro.checklist,
-        session: pomodoro.session
+        session: pomodoro.session,
+        date: pomodoro.date
     });
     newPomodoro.save();
     res.json(pomodoro);
