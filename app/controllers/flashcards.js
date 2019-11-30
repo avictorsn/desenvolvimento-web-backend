@@ -9,7 +9,20 @@ module.exports.getFlashcards = function(req, res){
 
     Flashcard.find({})
     .then(flashcards => {
-        res.json(flashcards);
+        if(req.query.grupo){
+            let queryGroup = req.query.grupo;
+            let result = [];
+            flashcards.map((flashcard)=>{
+                let groupname = '"'+flashcard.group+'"';
+                if(groupname === queryGroup){
+                    result.push(flashcard);
+                }
+            });
+            res.json(result);
+        }
+        else{
+            res.json(flashcards);
+        }
     })
     .catch(err => console.log(err));
 

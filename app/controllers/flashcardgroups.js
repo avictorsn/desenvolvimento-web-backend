@@ -9,7 +9,7 @@ module.exports.getFlashcardGroups = function(req, res){
 
     FlashcardGroup.find({})
     .then(flashcardGroups => {
-        res.json(flashcardgroups);
+        res.json(flashcardGroups);
     })
     .catch(err => console.log(err));
 
@@ -29,9 +29,9 @@ module.exports.getFlashcardGroup = function(req, res){
 //  Insert an flashcard group to the server;
 module.exports.insertFlashcardGroup = function(req, res){
     let flashcardGroup = req.body;
-    let newFlashcardGroup = new Flashcard({
+    let newFlashcardGroup = new FlashcardGroup({
         _id: new mongoose.Types.ObjectId(),
-        groupname: flashcard.group
+        groupname: flashcardGroup.groupname
     });
     newFlashcardGroup.save();
     res.json(flashcardGroup);
